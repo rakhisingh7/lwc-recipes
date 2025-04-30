@@ -1,0 +1,15 @@
+name: Validate Deployment
+on: 
+  workflow_dispatch:
+  
+jobs:
+  pmd-scan:
+    uses: ./.github/workflows/pmd.yml
+
+  check-status:
+    needs: pmd-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print PMD scan status
+        run: echo "${{ needs.pmd-scan.outputs.pmd_scan_status }}"
+  
