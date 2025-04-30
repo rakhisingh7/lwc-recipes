@@ -12,7 +12,7 @@ jobs:
       fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
     steps:
       - name: Checkout code
-        run: actions/checkout@v3
+        run: actions/checkout@v4
       - name: Install SF Scanner
         id: pmd    
         continue-on-error: 'true'
