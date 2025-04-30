@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     #container:
     #  image: salesforce/cli:latest-rc-slim
-    outputs: 
-      report: ${{ steps.result.outputs.pmd_scan_status }}"
+  #outputs: 
+  #    report: ${{ steps.result.outputs.pmd_scan_status }}"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,5 +22,5 @@ jobs:
         run: echo " pmd_scan_status = 'first yml' " >> GITHUB-OUTPUT
         #uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
-        run: echo "PMD Scan status ${{ report }}"
+        run: echo "PMD Scan status ${{ steps.result.pmd_scan_status }}"
 
