@@ -12,13 +12,12 @@ jobs:
     #  image: salesforce/cli:latest-rc-slim
     steps:
       - name: Checkout code
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           ref: dev
       - name: PMD scan
         id: result
-        run: echo " pmd_scan_status = 'first yml' " >> GITHUB-OUTPUT
-        #uses: ./github/workflows/pmd.yml
+        uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
         run: echo "PMD Scan status ${{ steps.result.outputs.pmd_scan_status }}"
 
