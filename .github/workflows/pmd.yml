@@ -11,5 +11,9 @@ jobs:
     outputs:
       fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: dev
       - id: result
-        run: echo "pmd-result = 'Success' " >> $GITHUB_OUTPUT
+        run: echo "pmd-result=Success" >> $GITHUB_OUTPUT
