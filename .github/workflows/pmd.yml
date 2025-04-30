@@ -33,6 +33,6 @@ jobs:
         id: result
         run: echo "pmd-result=Failed" >> "$GITHUB_OUTPUT"
       - name: Capture success status of PMD scan
-        if: failure() && steps.pmd.conclusion == 'success'
+        if: success() && steps.pmd.conclusion == 'success'
         id: result1
         run: echo "pmd-result1=Success" >> "$GITHUB_OUTPUT"
