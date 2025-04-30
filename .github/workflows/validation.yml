@@ -22,5 +22,5 @@ jobs:
         run: echo " pmd_scan_status = 'first yml' " >> GITHUB-OUTPUT
         #uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
-        run: echo "PMD Scan status ${{ outputs.var }}"
+        run: echo "PMD Scan status ${{ var }}"
 
