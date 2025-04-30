@@ -12,4 +12,4 @@ jobs:
       fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
     steps:
       - id: result
-        run: echo "pmd-result=Success" >> $GITHUB_OUTPUT
+        run: echo "pmd-result=Success" >> "$GITHUB_OUTPUT"
