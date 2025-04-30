@@ -1,5 +1,6 @@
 name: Validate Deployment
 on: 
+  workflow_dispatch:
   push: 
     branches:
       - main
@@ -9,7 +10,6 @@ on:
       - main
       - dev
     types: [opened, reopened, edited]
-  workflow_dispatch:
 jobs:
   pmd-scan:
     runs-on: ubuntu-latest
