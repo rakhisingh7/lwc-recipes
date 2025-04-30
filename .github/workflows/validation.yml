@@ -20,5 +20,5 @@ jobs:
         id: result
         uses: ./github/workflow/pmd.yml
       - name: Print PMD scan status
-        run: echo "PMD Scan status ${{ steps:result.outputs.pmd_scan_status}}"
+        run: echo "PMD Scan status ${{ steps:result.outputs.pmd_scan_status }}"
 
