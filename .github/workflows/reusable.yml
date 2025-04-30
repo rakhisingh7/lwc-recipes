@@ -18,6 +18,10 @@ jobs:
           ref: dev
       - name: PMD scan
         uses: ./github/workflows/pmd.yml
+
+  display-reusable-output:
+    runs-on: ubuntu-latest
+    steps:
       - name: Print PMD scan status
-        run: echo "${{ outputs.pmd_scan_status }}"
+        run: echo "${{ needs.pmd-scan.outputs.pmd_scan_status }}"
   
