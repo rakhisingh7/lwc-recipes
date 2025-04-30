@@ -8,7 +8,7 @@ on:
       pmd_fail_status:
         description: This is the status of pmd scan result
         value: ${{ jobs.pmd.outputs.pass-pmd-result }}
-        
+
 jobs:
   pmd:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
           ref: dev
       - name: Install SF Scanner
         id: pmd    
-        continue-on-error: 'true'
+        continue-on-error: true
         run: sf plugins install @salesforce/sfdx-scanner@v4.2.0
       - name: PMD scan
         run: sf scanner run --target ./ --config ruleset.xml -f table --engine pmd --normalize-severity --severity-threshold 2

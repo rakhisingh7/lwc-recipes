@@ -17,6 +17,7 @@ jobs:
            ref: dev
   
   pmd-scan:
+    needs: checkout
     uses: ./.github/workflows/pmd.yml
 
   check-status:
