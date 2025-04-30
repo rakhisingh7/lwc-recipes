@@ -9,7 +9,7 @@ on:
   
 jobs:
   pmd-scan:
-    uses: ./.githubs/workflows/pmd.yml
+    uses: ./.github/workflows/pmd.yml
 
   check-status:
     needs: pmd-scan
