@@ -8,8 +8,6 @@ on:
 jobs:
   pmd:
     runs-on: ubuntu-latest
-    container: 
-    image: salesforce/cli:latest-rc-slim
     outputs:
       fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
     steps:
