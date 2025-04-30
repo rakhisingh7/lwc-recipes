@@ -12,7 +12,7 @@ jobs:
     #container:
     #  image: salesforce/cli:latest-rc-slim
     outputs: 
-      report: ${{ steps.result.outputs.pmd_scan_status }}"
+      report: ${{ steps.result.outputs.pmd_scan_status }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
