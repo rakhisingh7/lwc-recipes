@@ -27,6 +27,7 @@ jobs:
 
       
   result:
+    needs: pmd-scan
     runs-on: ubuntu-latest
     steps:
       - name: Print PMD scan status
