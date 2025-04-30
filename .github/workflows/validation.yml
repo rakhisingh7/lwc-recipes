@@ -1,11 +1,6 @@
 name: Validate Deployment
 on: 
   workflow_dispatch:
-
-  push: 
-    branches:
-      - main
-      - dev
 jobs:
   pmd-scan:
     runs-on: ubuntu-latest
