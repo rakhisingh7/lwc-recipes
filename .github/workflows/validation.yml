@@ -1,6 +1,6 @@
 name: Validate Deployment
 on: 
-  workflow_dispatch:
+  workflow_dispatch
 jobs:
   pmd-scan:
     runs-on: ubuntu-latest
