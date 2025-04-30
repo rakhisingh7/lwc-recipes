@@ -7,7 +7,7 @@ on:
       - main
       - dev
 jobs:
-  pmd-scan:
+  checkout:
     runs-on: ubuntu-latest
     #container:
     #  image: salesforce/cli:latest-rc-slim
@@ -16,8 +16,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: dev
-      - name: PMD scan
-        uses: ./github/workflows/pmd.yml
+
+  pmd-scan:
+    uses: ./github/workflows/pmd.yml
 
   display-reusable-output:
     needs: pmd-scan
