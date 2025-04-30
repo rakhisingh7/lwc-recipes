@@ -5,9 +5,9 @@ on:
       pmd_pass_status:
         description: This is the status of pmd scan result
         value: ${{ jobs.pmd.outputs.fail-pmd-result }}
-      pmd_fail_status:
-        description: This is the status of pmd scan result
-        value: ${{ jobs.pmd.outputs.pass-pmd-result }}
+      #pmd_fail_status:
+        #description: This is the status of pmd scan result
+        #value: ${{ jobs.pmd.outputs.pass-pmd-result }}
 
 jobs:
   pmd:
@@ -33,6 +33,6 @@ jobs:
         id: result
         run: echo "pmd-result=Failed" >> "$GITHUB_OUTPUT"
       - name: Capture success status of PMD scan
-        #if: ${{ failure() && steps.pmd.conclusion == 'success' }}
-        id: result1
+        if: failure() && steps.pmd.conclusion == 'success'
+        id: result
         run: echo "pmd-result1=Success" >> "$GITHUB_OUTPUT"
