@@ -24,11 +24,11 @@ jobs:
         #uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
         run: echo "${{ steps.result.pmd_scan_status }}"
-
-      
+  
   result:
     needs: pmd-scan
     runs-on: ubuntu-latest
     steps:
       - name: Print PMD scan status
-        run: echo "${{ needs.pmd-scan.outputs.report }}"
+        #run: echo "${{ needs.pmd-scan.outputs.report }}"
+        run: echo "abc"
