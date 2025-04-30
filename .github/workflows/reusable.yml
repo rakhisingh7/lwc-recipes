@@ -25,5 +25,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print PMD scan status
-        run: echo "${{ needs.call-pmd-scan.outputs.pmd_scan_status }}"
+        run: echo "${{ needs.call-pmd-scan.outputs.pmd_scan_status }}" 
   
