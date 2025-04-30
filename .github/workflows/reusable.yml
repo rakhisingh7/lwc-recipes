@@ -1,0 +1,23 @@
+name: Validate Deployment
+on: 
+  workflow_dispatch:
+
+  push: 
+    branches:
+      - main
+      - dev
+jobs:
+  pmd-scan:
+    runs-on: ubuntu-latest
+    #container:
+    #  image: salesforce/cli:latest-rc-slim
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+      - name: PMD scan
+        uses: ./github/workflows/pmd.yml
+      - name: Print PMD scan status
+        run: echo "${{ outputs.pmd_scan_status }}"
+  
