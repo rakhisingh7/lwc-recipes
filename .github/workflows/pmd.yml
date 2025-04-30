@@ -1,0 +1,38 @@
+name: PMD Scan
+on: 
+  workflow_call:
+    outputs:
+      pmd_pass_status:
+        description: This is the status of pmd scan result
+        value: ${{ jobs.pmd.outputs.fail-pmd-result }}
+      pmd_fail_status:
+        description: This is the status of pmd scan result
+        value: ${{ jobs.pmd.outputs.pass-pmd-result }}
+        
+jobs:
+  pmd:
+    runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:latest-rc-slim
+    outputs:
+      fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
+      pass-pmd-result: ${{ steps.result1.outputs.pmd-result }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+      - name: Install SF Scanner
+        id: pmd    
+        continue-on-error: 'true'
+        run: sf plugins install @salesforce/sfdx-scanner@v4.2.0
+      - name: PMD scan
+        run: sf scanner run --target ./ --config ruleset.xml -f table --engine pmd --normalize-severity --severity-threshold 2
+      - name: Capture failure status of PMD scan
+        if: ${{ failure() && steps.pmd.conclusion == 'failure' }}
+        id: result
+        run: echo "pmd-result=Failed" >> $GITHUB_OUTPUT
+      - name: Capture success status of PMD scan
+        if: ${{ failure() && steps.pmd.conclusion == 'success' }}
+        id: result1
+        run: echo "pmd-result=Success" >> $GITHUB_OUTPUT
