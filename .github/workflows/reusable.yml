@@ -20,6 +20,7 @@ jobs:
         uses: ./github/workflows/pmd.yml
 
   display-reusable-output:
+    needs: pmd-scan
     runs-on: ubuntu-latest
     steps:
       - name: Print PMD scan status
