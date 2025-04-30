@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         run: actions/checkout@v4
+        with:
+          ref: dev
       - name: PMD scan
         id: result
         run: echo " pmd_scan_status = 'first yml' " >> GITHUB-OUTPUT
