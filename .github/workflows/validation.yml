@@ -11,6 +11,8 @@ jobs:
     #container:
     #  image: salesforce/cli:latest-rc-slim
     steps:
+      - name: Checkout code
+        run: actions/checkout@v4
       - name: PMD scan
         id: result
         uses: ./github/workflows/pmd.yml
