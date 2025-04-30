@@ -14,7 +14,7 @@ jobs:
       fail-pmd-result: ${{ steps.result.outputs.pmd-result }}
     steps:
     - name: Checkout code
-      run: action/checkout@v4
+      run: actions/checkout@v4
     - name: Install SF Scanner
       run: sf plugins install @salesforce/sfdx-scanner@v4.2.0
     - name: ESLINT scan
