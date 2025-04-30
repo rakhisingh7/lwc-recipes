@@ -17,8 +17,9 @@ jobs:
         with:
           ref: dev
 
-  pmd-scan:
-    uses: ./github/workflows/pmd.yml
+  call-pmd-scan:
+    - name: Calling pmd scan 
+      uses: ./github/workflows/pmd.yml
 
   display-reusable-output:
     needs: pmd-scan
