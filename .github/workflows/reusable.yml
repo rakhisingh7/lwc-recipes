@@ -21,9 +21,9 @@ jobs:
     uses: ./.github/workflows/pmd.yml
 
   display-reusable-output:
-    needs: call-pmd-scan
+    needs: [checkout,call-pmd-scan]
     runs-on: ubuntu-latest
     steps:
       - name: Print PMD scan status
-        run: echo "${{ needs.pmd-scan.outputs.pmd_scan_status }}"
+        run: echo "${{ needs.call-pmd-scan.outputs.pmd_scan_status }}"
   
