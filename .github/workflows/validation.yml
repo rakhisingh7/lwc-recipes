@@ -8,8 +8,8 @@ on:
 jobs:
   pmd-scan:
     runs-on: ubuntu-latest
-    container:
-      image: salesforce/cli:latest-rc-slim
+    #container:
+    #  image: salesforce/cli:latest-rc-slim
     steps:
       - name: PMD scan
         id: result
