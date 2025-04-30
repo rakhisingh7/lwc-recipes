@@ -17,7 +17,8 @@ jobs:
       image: salesforce/cli:latest-rc-slim
     steps:
       - name: PMD scan
+        id: result
         uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
-        run: echo "PMD Scan status ${{ outputs.pmd_scan_status }}"
+        run: echo "PMD Scan status ${{ steps:result.outputs.pmd_scan_status }}"
 
