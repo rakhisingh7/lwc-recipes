@@ -27,7 +27,7 @@ jobs:
       - name: PMD scan
         id: pmd
         continue-on-error: true
-        run: sf scanner run -t ./ --pmdconfig ruleset.xml -f table --engine pmd --normalize-severity --severity-threshold 2
+        run: sf scanner run -t ./ --config ruleset.xml -f table --engine pmd --normalize-severity --severity-threshold 2
       - name: Capture failure status of PMD scan
         if: failure() && steps.pmd.conclusion == 'failure' 
         id: result
