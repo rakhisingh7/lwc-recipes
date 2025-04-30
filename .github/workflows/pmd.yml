@@ -29,10 +29,10 @@ jobs:
         continue-on-error: true
         run: sf scanner run -t ./ --config ruleset.xml -f table --engine pmd --normalize-severity --severity-threshold 2
       - name: Capture failure status of PMD scan
-        if: failure() && steps.pmd.outcome == 'failure' 
+        if: steps.pmd.outcome == 'failure' 
         id: result
         run: echo "pmd-result=Failed" >> "$GITHUB_OUTPUT"
       - name: Capture success status of PMD scan
-        if: success() && steps.pmd.outcome == 'success'
+        if: steps.pmd.outcome == 'success'
         id: result1
         run: echo "pmd-result1=Success" >> "$GITHUB_OUTPUT"
