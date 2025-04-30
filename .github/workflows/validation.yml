@@ -5,19 +5,12 @@ on:
     branches:
       - main
       - dev
-  pull_request:
-    branches:
-      - main
-      - dev
-    types: [opened, reopened, edited]
 jobs:
   pmd-scan:
     runs-on: ubuntu-latest
     container:
       image: salesforce/cli:latest-rc-slim
     steps:
-      - name: Checkout code
-        run: actions/checkout@v4
       - name: PMD scan
         id: result
         uses: ./github/workflows/pmd.yml
