@@ -11,5 +11,6 @@ jobs:
     steps:
       - name: PMD scan
         uses: ./github/workflow/pmd.yml
+      - name: Print PMD scan status
         run: echo "PMD Scan status ${{ outputs.pmd_scan_status}}"
 
