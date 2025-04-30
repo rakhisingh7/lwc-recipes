@@ -19,7 +19,7 @@ jobs:
         run: echo "pmd_scan_status=firstyml" >> "$GITHUB_OUTPUT"
         #uses: ./github/workflows/pmd.yml
       - name: Print PMD scan status
-        run: echo "${{ steps.result.pmd_scan_status }}"
+        run: echo "${{ steps.result.outputs.pmd_scan_status }}"
   
   display:
     needs: pmd-scan
